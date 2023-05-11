@@ -126,9 +126,9 @@ def to_word_align(src, tgt, subword_align, subword_align_scores,
                        for a, b in subword_align})
 
     word_align_scores = list(
-        {"{}-{}".format(tgt_map[a],
-                        subword_align_scores[a])
-         for a in subword_align_scores.keys()}
+        {"{}-{}-{}".format(src_map[a], tgt_map[b],
+                           subword_align_scores[b])
+         for a, b in subword_align}
     )
 
     word_align.sort(key=lambda x: int(x.split('-')[-1]))  # sort by tgt_id
