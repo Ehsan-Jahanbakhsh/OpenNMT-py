@@ -134,6 +134,7 @@ def to_word_align(src, tgt, subword_align, subword_align_scores,
     word_align.sort(key=lambda x: int(x.split('-')[-1]))  # sort by tgt_id
     word_align.sort(key=lambda x: int(x.split('-')[0]))  # sort by src_id
 
+    word_align_scores.sort(key=lambda x: int(x.split('-')[1]))
     word_align_scores.sort(key=lambda x: int(x.split('-')[0]))
 
     return " ".join(word_align), " ".join(word_align_scores)
